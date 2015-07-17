@@ -17,17 +17,11 @@ Loop, Files, %rootDir%, D
 	ostCounts[cnt>0 ? "ost":"none"].Push(cnt)
 	tmpMax := cnt>tmpMax.val ? {val:cnt, tool:rssNum} : tmpMax
 }
-;************** DEBUGGING **************
-if (m(tmpMax.val " for tool " tmpMax.tool, "btn:yn", "ico:!") != "YES")
-	ExitApp
-;*************************************** 
-ostCounts.Max := tmpMax
 SplashImage, Off
 
-ostStats := {Avg:Average(ostCounts.ost), Total:FileCount(rootDir), OstCount:ostCounts.MaxIndex(), Max:}
+ostStats := {Avg:Average(ostCounts.ost), Total:FileCount(rootDir), OstCount:ostCounts.MaxIndex(), Max:tmpMax.val, MaxTool:tmpMax.tool}
 
 
-;Get average number of OSTs
 m("The average number of OSTs for the " ostStats.OstCount " tool(s) that had at least 1 OST is:", ostStats.Avg, "", "ico:i")
 ExitApp
 
