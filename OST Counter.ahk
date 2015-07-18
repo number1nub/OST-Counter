@@ -26,7 +26,6 @@ m("The average number of OSTs for the " ostStats.OstCount " tool(s) that had at 
 ExitApp
 
 
-
 #Include lib\m.ahk
 #Include lib\FileCount.ahk
 #Include lib\GetRootDir.ahk
